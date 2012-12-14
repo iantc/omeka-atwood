@@ -674,17 +674,26 @@
  
 /* PUT IN YOUR SLIDER ID AND SIZE TO MAKE LOAD BEAUTIFULLY
    ================================================== */
-#caseStudies { 
-	width: 1000px;
-	height: 210px;
-	background: #fff url('../images/orbit/loading.gif') no-repeat center center;
+#featuredimgs { 
+	width: 600px;
+	height: 500px;
+	background: #000 url('../images/orbit/loading.gif') no-repeat center center;
 	overflow: hidden; }
-#caseStudies>img,  
-#caseStudies>div,
-#caseStudies>a { display: none; }
+#featuredimgs>img,  
+#featuredimgs>div,
+#featuredimgs>a { display: none; }
 
+#showholder{
+	width: 100%;
+	height: 400px;
+	background: #000;
+	margin:0 auto;
+	margin-bottom:25px;
+}
 
-
+#imgslide{
+	width:100%;
+	}
 
 /* CONTAINER
    ================================================== */

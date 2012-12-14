@@ -81,10 +81,6 @@ li.nav-browse-all {
 	background: url(../images/search.png) left center no-repeat;
 }
 
-.item-pagination > li {
-padding: 0 10px;
-display: inline;
-}
 
 /* -----------------------------------------
 Forms
@@ -237,6 +233,7 @@ ul.pagination_list li a {
 	color: #555;
 }
 ul.pagination_list li.pagination_current, ul.pagination li:hover a, ul.pagination li a:focus {
+	margin: 5px;
 	border-bottom: solid 2px #00a6fc;
 	color: #141414;
 }

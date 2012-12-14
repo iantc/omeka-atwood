@@ -3,7 +3,7 @@
 
 
     <h1><?php echo link_to_exhibit(); ?></h1>
-    <div id="nav-container">
+    <div id="nav-container">*
         <?php echo exhibit_builder_page_nav();?>
     </div>
 
