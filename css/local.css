@@ -10,3 +10,31 @@ position: relative;
 }
 .top-bar #search-form{float:right;}
 .top-bar #search-form input{float:left}
+
+/* CSS for the .gallery-full-left layout */
+
+.gallery-full-left .primary,
+.gallery-full-left .secondary {
+    float:left; 
+    width:49%;
+    overflow:hidden;
+    zoom:1;
+}
+
+.gallery-full-left .secondary {
+    float:right; 
+}
+
+.gallery-full-left .gallery .exhibit-item {
+    float:left; 
+    margin-right:2%; 
+    width: 48%;
+}
+
+.gallery-full-left .exhibit-item {
+    margin-bottom:2%;
+}
+
+.gallery-full-left .exhibit-item img {
+    max-width: 100%;
+}
