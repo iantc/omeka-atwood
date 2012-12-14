@@ -19,39 +19,16 @@
 <?php endif; ?>
 <!--end featured-item-->
 
-<!-- Recent Items -->
-<div id="recent-items" class="six columns">
-	<h2>Recently Added Items</h2>
-
-	<?php
-$homepageRecentItems = (int)get_theme_option('Homepage Recent Items') ? get_theme_option('Homepage Recent Items') : '3';
-set_items_for_loop(recent_items($homepageRecentItems));
-if (has_items_for_loop()):
-?>
-	<ul class="items-list">
-	<?php while (loop_items()): ?>
-	<li class="item">
-		<h3><?php echo link_to_item(); ?></h3>
-		<?php if($itemDescription = item('Dublin Core', 'Description', array('snippet'=>150))): ?>
-			<p class="item-description"><?php echo $itemDescription; ?></p>
-		<?php endif; ?>
-	</li>
-	<?php endwhile; ?>
-	</ul>
-	<?php else: ?>
-	<p>No recent items available.</p>
-	<?php endif; ?>
-	<p class="view-items-link"><?php echo link_to_browse_items('View All Items'); ?></p>
-
-
-</div>
-</div>
-<!-- end recent-items -->
-
-	<!-- Featured Collection -->
+<!-- Featured Collection -->
 <div class="row">
 <div class="twelve columns">
-
+<?php
+$collections = get_collections();
+foreach ($collections as $collection) {
+	echo '<h2>' . $collection->name . '</h2>';
+	echo '<p>' . $collection->description . '</p>';
+}
+?>
 			<div class="panel">
 	<?php if (get_theme_option('Display Featured Collection')): ?>
 

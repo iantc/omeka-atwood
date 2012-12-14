@@ -15,31 +15,30 @@
 
 <!-- Stylesheets -->
 <?php
-queue_css(array('app', 'foundation'));
+queue_css(array('app', 'foundation','local'));
 display_css();
 ?>
-
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Lato" />
+<link type="text/css" href="/themes/atwood/css/local.css" rel="stylesheet" media="all />
 <!-- JavaScripts -->
 <?php
 queue_js(array('app', 'foundation'));
 display_js();
 ?>
-
 </head>
-
 <body<?php echo isset($bodyid) ? ' id="'.$bodyid.'"' : ''; ?><?php echo isset($bodyclass) ? ' class="'.$bodyclass.'"' : ''; ?>>
 <?php plugin_body(); ?>
-<div class="container">
+<div class="container" id="site-header">
 	<?php plugin_page_header(); ?>
 	<div class="row">
 		<div class="twelve columns">
 			<h1 id="site-title">
 				<?php echo link_to_home_page(custom_display_logo()); ?>
 			</h1>
-			<div id="primary-nav">
+			<nav id="primary-nav" class="top-bar">
 				<ul class="nav-bar">
 					<li>
-						<?php echo nav (
+                   	<?php echo nav (
 									array(
 									'Browse Items' => uri('items'),
 									'Browse Collections' => uri('collections')
@@ -54,7 +53,7 @@ display_js();
 						<?php echo simple_search(); ?>
 					</li>
 				</ul>
-			</div>
+			</nav>
 		</div>
 	</div>
 </div>
