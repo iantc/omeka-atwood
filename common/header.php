@@ -10,7 +10,7 @@
 <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
 <!-- Stylesheets -->
 <?php
-queue_css_file(array('app', 'foundation', 'style','local'));
+queue_css_file(array('app', 'foundation', 'local'));
 queue_css_url('http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic');
 echo head_css();
 ?>
@@ -21,24 +21,28 @@ echo head_css();
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-<div class="container" id="site-header">
+<div class="container top-bar home-border" id="site-header">
 <?php fire_plugin_hook('public_header'); ?>
-<div class="row">
-<div class="twelve columns">
-<h1 id="site-title">
-<?php echo link_to_home_page(theme_logo()); ?>
-</h1>
+  <div class="row">
+    <div class="twelve columns">
+      <nav class="top-bar">
+        <ul>
+          <!-- Title Area -->
+          <li class="name">
+            <h1 id="site-title">
+              <?php echo link_to_home_page(theme_logo()); ?>
+            </h1>
+          </li>
+        </ul>
+        <section>
+          <!-- Left Nav Section -->
+          <ul class="left">
+		  <?php echo public_nav_main(); ?>
+		  <?php echo search_form(array('show_advanced' => false)); ?>
+          </ul>
+        </section>
+      </nav>
+    </div>
+  </div>
 <?php fire_plugin_hook('public_content_top'); ?>
-<nav id="primary-nav" class="top-bar">
-<?php echo public_nav_main(); ?>
-<ul class="nav-bar">
-<li>
-</li>
-<li id="search-container">
-<?php echo search_form(array('show_advanced' => false)); ?>
-</li>
-</ul>
-</nav>
-</div>
-</div>
 </div>
