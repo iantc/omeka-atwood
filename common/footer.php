@@ -1,13 +1,23 @@
+    <footer>
+    <div class="row">
+        <div id="footer-text">
+            <?php echo get_theme_option('Footer Text'); ?>
+            <?php if ((get_theme_option('Display Footer Copyright') == 1) && $copyright = option('copyright')): ?>
+                <p><?php echo $copyright; ?></p>
+            <?php endif; ?>
+            <p><?php echo __('Proudly powered by <a href="http://omeka.org">Omeka</a>.'); ?></p>
+        </div>
 
-<div class="row">
-	<div id="footer" class="twelve columns">
-		<?php admin_plugin_footer(); ?>^
-		<ul class="pagination">
-			<?php echo
-			custom_public_nav_header(); ?>
-		</ul>
-		<p>
-			<a href="http://omeka.org" id="omeka-logo" name="omeka-logo">Powered by Omeka</a> | <a href="http://omeka.org/codex/">Documentation</a> | <a href="http://omeka.org/forums/">Support Forums</a>
-		</p>
-	</div>
-</div>
+        <?php fire_plugin_hook('public_theme_footer'); ?>
+        </div>
+
+    </footer><!-- end footer -->
+
+    <script type="text/javascript">
+    jQuery(document).ready(function () {
+        Omeka.showAdvancedForm();
+    });
+    </script>
+
+</body>
+</html>
