@@ -1,6 +1,13 @@
 <?php echo head(); ?>
 <div class="container">
-  <div id="primary"  class="content">
+  <div class="row">
+    <div class="nine columns">
+    </div>
+    <div class="three columns">
+	  <?php echo search_form(array('show_advanced' => false)); ?>
+    </div>
+  </div>
+  <div id="primary" class="content">
 	<?php if ($homepageText = get_theme_option('Homepage Text')): ?>
       <p><?php echo $homepageText; ?></p>
 	<?php endif; ?>

@@ -15,34 +15,33 @@ queue_css_url('http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic
 echo head_css();
 ?>
 <!-- JavaScripts -->
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<?php queue_js_file(array('app', 'foundation')); ?>
+<?php queue_js_file(array('modernizr.foundation','foundation.min', 'app')); ?>
 <?php echo head_js(); ?>
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+	jQuery('.navigation').addClass('right');
+  });
+</script>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
 <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
 <div class="container top-bar home-border" id="site-header">
-<?php fire_plugin_hook('public_header'); ?>
-  <div class="row">
-    <div class="twelve columns">
-      <nav class="top-bar">
-        <ul>
-          <!-- Title Area -->
-          <li class="name">
-            <h1 id="site-title">
-              <?php echo link_to_home_page(theme_logo()); ?>
-            </h1>
-          </li>
-        </ul>
-        <section>
-          <!-- Left Nav Section -->
-          <ul class="left">
-		  <?php echo public_nav_main(); ?>
-		  <?php echo search_form(array('show_advanced' => false)); ?>
-          </ul>
-        </section>
-      </nav>
-    </div>
+  <?php fire_plugin_hook('public_header'); ?>
+  <div class="attached">
+    <nav>
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <h1 id="site-title">
+            <?php echo link_to_home_page(theme_logo()); ?>
+          </h1>
+        </li>
+      </ul>
+      <section>
+        <!-- Left Nav Section -->
+        <?php echo public_nav_main(); ?>
+      </section>
+    </nav>
   </div>
-<?php fire_plugin_hook('public_content_top'); ?>
+  <?php fire_plugin_hook('public_content_top'); ?>
 </div>
