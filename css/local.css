@@ -1,40 +1,52 @@
 body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:13px;background:#f8f8f8}
 .top-bar {
-background: #222;
-height: 45px;
-line-height: 45px;
-margin: 0 0 30px;
-padding: 0;
-width: 100%;
-position: relative;
+  background: #222;
+  height: 45px;
+  line-height: 45px;
+  margin: 0 0 30px;
+  padding: 0;
+  width: 100%;
+  position: relative;
 }
+
 .top-bar #search-form{float:right;}
 .top-bar #search-form input{float:left}
+
+.row{max-width:100%;width:1280px;}
 
 /* CSS for the .gallery-full-left layout */
 
 .gallery-full-left .primary,
 .gallery-full-left .secondary {
-    float:left; 
-    width:49%;
-    overflow:hidden;
-    zoom:1;
-}
+  float:left;
+  width:49%;
+  overflow:hidden;
+  zoom:1;}
 
 .gallery-full-left .secondary {
-    float:right; 
-}
+  float:right; }
 
 .gallery-full-left .gallery .exhibit-item {
-    float:left; 
-    margin-right:2%; 
-    width: 48%;
-}
+  float:left;
+  margin-right:2%;
+  width: 48%;}
 
 .gallery-full-left .exhibit-item {
-    margin-bottom:2%;
-}
+  margin-bottom:2%;}
 
 .gallery-full-left .exhibit-item img {
-    max-width: 100%;
+  max-width: 100%;}
+
+  /* Exhibit home page */
+
+#exhibit-pages h3{font-size:14px; font-weight:normal;}
+div.orbit-wrapper div.slider-nav span.right {
+background: url('/themes/atwood/images/foundation/orbit/right-arrow.png');
+background-size: 100%;
+right: 0;
+}
+div.orbit-wrapper div.slider-nav span.left {
+background: url('/themes/atwood/images/foundation/orbit/left-arrow.png');
+background-size: 100%;
+right: 0;
 }

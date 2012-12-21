@@ -9,18 +9,6 @@
     </div>
   </div>
   <div class="row">
-    <div class="twelve columns">
-      <div id="slider">
-        <img src="http://placehold.it/600x240&text=[img 1]" />
-        <img src="http://placehold.it/600x240&text=[img 2]" />
-        <img src="http://placehold.it/600x240&text=[img 3]" />
-        <img src="http://placehold.it/600x240&text=[img 4]" />
-      </div>
-      
-      <hr />
-    </div>
-  </div>
-  <div class="row">
     <div class="three columns">
       <div id="exhibit-pages">
         <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
@@ -29,6 +17,17 @@
         <?php endforeach; ?>
       </div>
     </div>
+    <div class="nine columns">
+      <div id="featured">
+        <img src="http://placehold.it/600x240&text=[img 1]" />
+        <img src="http://placehold.it/600x240&text=[img 2]" />
+        <img src="http://placehold.it/600x240&text=[img 3]" />
+        <img src="http://placehold.it/600x240&text=[img 4]" />
+      </div>
+      <hr />
+    </div>
+  </div>
+  <div class="row">
     <div class="nine columns">
 	  <?php //echo metadata('exhibit', 'description', array('no_escape' => true)); ?>
     </div>
