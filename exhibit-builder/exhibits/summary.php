@@ -1,11 +1,13 @@
 <?php echo head(array('title' => metadata('exhibit', 'title'),'bodyid'=>'exhibit','bodyclass'=>'summary')); ?>
 <div class="container">
-  <div class="row">
-    <div class="nine columns">
-      <h1><?php echo metadata('exhibit', 'title'); ?></h1>
+  <div class="row" id="exhibit-header">
+    <div class="eight columns">
+      <h1 id="exhibit-title-wrapper"><?php echo link_to_exhibit(metadata('exhibit', 'title'), array('id'=>'exhibit-title')); ?></h1>
     </div>
-    <div class="three columns">
-	  <?php echo search_form(array('show_advanced' => false)); ?>
+    <div class="four columns">
+      <div class="row collapse">
+          <?php echo search_form(array('show_advanced' => false)); ?>
+      </div>
     </div>
   </div>
   <div class="row">

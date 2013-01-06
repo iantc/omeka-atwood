@@ -41,6 +41,10 @@ echo head_css();
   })
   jQuery(document).ready(function(){
   	jQuery('.navigation').addClass('right');
+    jQuery('#search-form #query').wrap('<div class="nine mobile-three columns" />');
+    jQuery('#search-form input[type=submit]').wrap('<div class="three mobile-one columns" />');
+    jQuery('#search-form input[type=submit]').addClass('button expand postfix');
+    jQuery('#sort-links .sort-label').prependTo('#sort-links-list');
   });
 </script>
 </head>
