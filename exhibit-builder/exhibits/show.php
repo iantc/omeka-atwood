@@ -13,7 +13,17 @@
   <div class="row">
     <div class="two columns">
       <div id="exhibit-pages">
-        <h3><?php echo link_to_exhibit('Home', array('id'=>'home-link')); ?></h3>
+        <ul class="tabs vertical">
+          <?php $current_page_id = metadata('exhibit_page', 'id'); ?>
+          <?php foreach ($exhibit->TopPages as $exhibitPage) {
+            if ($current_page_id == $exhibitPage->id){
+              $current_page_marker = " class=\"active\"";
+            } else {
+              $current_page_marker = "";
+            }
+            echo "<li" . $current_page_marker . "><a href=\"" . $exhibitPage->slug . "\">" . $exhibitPage->title . "</a></li>";
+          } ?>
+        </ul>
       </div>
     </div>
     <div class="ten columns">
