@@ -1,57 +1,37 @@
+/* Base layout */
 body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:13px;background:#f8f8f8}
-.top-bar {
-  background: #222;
-  height: 45px;
-  line-height: 45px;
-  margin: 0 0 30px;
-  padding: 0;
-  width: 100%;
-  position: relative;
-}
-#site-title{margin:0;}
-#site-title a{font-size:20px;padding:10px 20px;height:auto;line-height: normal;margin: 0px;}
-#exhibit-header{margin-bottom: 12px}
-#exhibit-header #search-form{margin-top:8px;}
-
 .row{max-width:100%;width:1280px;}
 
-/* CSS for the .gallery-full-left layout */
+/* Site-wide top bar */
+.top-bar {background: #222;height: 45px;line-height: 45px;margin: 0 0 30px;padding: 0;width: 100%;position: relative;}
+#site-header #site-title{margin:0;}
+#site-header #site-title a{font-size:20px;padding:10px 20px;height:auto;line-height: normal;margin: 0px;}
+#home #site-header #site-title{display: none;}
 
+/* Site title */
+
+/* Omeka/exhibits top page */
+#site-title-wrapper #site-title{font-size:44px;line-height:48px;margin:0 0 30px;font-weight:normal;}
+#home h2{font-size:27px;}
+#home h3{font-size:15px;margin-bottom: 25px}
+#recent-items .row{min-height: 265px;}
+#recent-items .item-title{display: block;padding:4px;}
+
+/* Exhibit header */
+#exhibit-header{margin-bottom: 12px}
+#exhibit-header #search-form{margin-top:8px;}
 #exhibit-title-wrapper{margin-top: 0;}
+
+/* CSS for the .gallery-full-left layout */
 .show #exhibit-title-wrapper{font-size:28px;margin-top: 0;}
 .gallery-full-left .primary,
-.gallery-full-left .secondary {
-  float:left;
-  width:49%;
-  overflow:hidden;
-  zoom:1;}
-
-.gallery-full-left .secondary {
-  float:right;
-  width:42%;
-  margin-top:4px;}
-
-.gallery-full-left .gallery .exhibit-item {
-  float:left;
-  margin-right:2%;
-  width: 48%;}
-
-.gallery-full-left .exhibit-item {
-  margin-bottom:2%;}
-
-.gallery-full-left .exhibit-item img {
-  max-width: 100%;}
+.gallery-full-left .secondary {float:left;width:49%;overflow:hidden;zoom:1;}
+.gallery-full-left .secondary {float:right;width:42%;margin-top:4px;}
+.gallery-full-left .gallery .exhibit-item {float:left;margin-right:2%;width: 48%;}
+.gallery-full-left .exhibit-item {margin-bottom:2%;}
+.gallery-full-left .exhibit-item img {max-width: 100%;}
 
   /* Exhibit home page */
-
 #exhibit-pages h3{font-size:14px; font-weight:normal;}
-div.orbit-wrapper div.slider-nav span.right {
-background: url('/themes/atwood/images/foundation/orbit/right-arrow.png');
-background-size: 100%;
-right: 0;
-}
-div.orbit-wrapper div.slider-nav span.left {
-background: url('/themes/atwood/images/foundation/orbit/left-arrow.png');
-background-size: 100%;
-right: 0;
-}
+div.orbit-wrapper div.slider-nav span.right {background: url('/themes/atwood/images/foundation/orbit/right-arrow.png');background-size: 100%;right: 0;}
+div.orbit-wrapper div.slider-nav span.left {background: url('/themes/atwood/images/foundation/orbit/left-arrow.png');background-size: 100%;right: 0;}
