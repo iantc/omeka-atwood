@@ -45,6 +45,9 @@ echo head_css();
     jQuery('#search-form input[type=submit]').wrap('<div class="three mobile-one columns" />');
     jQuery('#search-form input[type=submit]').addClass('button expand postfix');
     jQuery('#sort-links .sort-label').prependTo('#sort-links-list');
+    jQuery('#recent-items .item-title').each(function() {
+      jQuery(this).prev('.item-img').children('.th').append(this);
+    });
   });
 </script>
 </head>
