@@ -1,10 +1,15 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 <div class="container">
-  <div class="row">
-    <div class="nine columns">
+  <div class="row" id="site-title-wrapper">
+    <div class="eight columns">
+      <h1 id="site-title">
+        <?php echo link_to_home_page(theme_logo()); ?>
+      </h1>
     </div>
-    <div class="three columns">
-	  <?php echo search_form(array('show_advanced' => false)); ?>
+    <div class="four columns">
+      <div class="row collapse">
+    	  <?php echo search_form(array('show_advanced' => false)); ?>
+      </div>
     </div>
   </div>
   <div class="row" id="primary" class="content">
@@ -42,26 +47,32 @@
     </div>
     <div class="seven columns">
       <div id="recent-items">
-        <h2><?php echo __('Recently Added Items'); ?></h2>
+        <h2><?php echo __('Recent Additions'); ?></h2>
 
         <?php
         $homepageRecentItems = (int)get_theme_option('Homepage Recent Items') ? get_theme_option('Homepage Recent Items') : '3';
         set_loop_records('items', get_recent_items($homepageRecentItems));
         if (has_loop_records('items')): ?>
           <div class="items-list">
-            <?php foreach (loop('items') as $item): ?>
-              <div class="item">
-                <div class="item-title"><?php echo link_to_item(); ?></div>
-                <?php if (metadata('item', 'has thumbnail')): ?>
-                  <div class="item-img">
-                    <?php echo link_to_item(item_image('square_thumbnail')); ?>
-                  </div>
-                <?php endif; ?>
-                <?php if($desc = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>150))): ?>
-                  <div class="item-description"><?php echo $desc; ?><?php echo link_to_item('see more',(array('class'=>'show'))) ?></div>
-                <?php endif; ?>
-              </div>
-            <?php endforeach; ?>
+            <div class="row">
+              <?php
+              $counta = 1;
+              foreach (loop('items') as $item): ?>
+                <div class="item four columns front">
+                  <?php if (metadata('item', 'has thumbnail')): ?>
+                    <div class="item-img">
+                      <?php echo link_to_item(item_image('square_thumbnail'),array('class'=>'recent-item th')); ?>
+                    </div>
+                  <?php endif; ?>
+                  <span class="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span>
+                </div>
+              <?php
+              if ($counta == 3 || $counta == 6){
+                echo "</div><div class=\"row\">";
+              }
+              $counta++;
+              endforeach; ?>
+            </div>
           </div>
         <?php else: ?>
           <p><?php echo __('No recent items available.'); ?></p>
