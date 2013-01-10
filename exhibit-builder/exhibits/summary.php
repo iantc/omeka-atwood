@@ -13,24 +13,28 @@
   <div class="row">
     <div class="three columns">
       <div id="exhibit-pages">
-        <?php set_exhibit_pages_for_loop_by_exhibit(); ?>
-        <?php foreach (loop('exhibit_page') as $exhibitPages): ?>
-        <?php exhibit_builder_render_page_summary(); ?>
-        <?php endforeach; ?>
+        <ul class="tabs vertical">
+          <?php foreach ($exhibit->TopPages as $exhibitPage) {
+            echo "<li><a href=\"" . $exhibit->slug . "/" . $exhibitPage->slug . "\">" . $exhibitPage->title . "</a></li>";
+          } ?>
+        </ul>
       </div>
     </div>
-    <div class="nine columns">
+    <div class="six columns">
       <div id="featured">
-        <img src="http://placehold.it/600x240&text=[img 1]" />
-        <img src="http://placehold.it/600x240&text=[img 2]" />
-        <img src="http://placehold.it/600x240&text=[img 3]" />
-        <img src="http://placehold.it/600x240&text=[img 4]" />
+        <img src="/themes/atwood/assets/images/slideshow1.jpg" />
+        <img src="/themes/atwood/assets/images/slideshow2.jpg" />
+        <img src="/themes/atwood/assets/images/slideshow3.jpg" />
+        <img src="/themes/atwood/assets/images/slideshow4.jpg" />
+        <img src="/themes/atwood/assets/images/slideshow5.jpg" />
       </div>
       <hr />
     </div>
+    <div class="three columns">
+    </div>
   </div>
   <div class="row">
-    <div class="nine columns">
+    <div class="twelve columns">
 	  <?php //echo metadata('exhibit', 'description', array('no_escape' => true)); ?>
     </div>
   </div>
