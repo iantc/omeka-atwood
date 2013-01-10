@@ -1,16 +1,18 @@
 /* Base layout */
 body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:13px;background:#f8f8f8}
+body#exhibit{background: #eee7df}
 .row{max-width:100%;width:1280px;}
 
 /* Site-wide top bar */
 .top-bar {background: #222;height: 45px;line-height: 45px;margin: 0 0 30px;padding: 0;width: 100%;position: relative;}
-#site-header #site-title{margin:0;}
+#site-header #site-title{margin:0;color:#ddd3bf;}
 #site-header #site-title a{font-size:20px;padding:10px 20px;height:auto;line-height: normal;margin: 0px;}
 #home #site-header #site-title{display: none;}
 
 /* Site title */
+#exhibit-title-wrapper a{font-family: 'Trykker',serif;color:#333;font-size: 36px;}
 
-/* Omeka/exhibits top page */
+/* Omeka main page */
 #site-title-wrapper #site-title{font-size:44px;line-height:48px;margin:0 0 30px;font-weight:normal;}
 #home h2{font-size:27px;}
 #home h3{font-size:15px;margin-bottom: 25px}
@@ -31,7 +33,11 @@ body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:13px;background:#f8
 .gallery-full-left .exhibit-item {margin-bottom:2%;}
 .gallery-full-left .exhibit-item img {max-width: 100%;}
 
-  /* Exhibit home page */
+/* Exhibit home page */
 #exhibit-pages h3{font-size:14px; font-weight:normal;}
-div.orbit-wrapper div.slider-nav span.right {background: url('/themes/atwood/images/foundation/orbit/right-arrow.png');background-size: 100%;right: 0;}
-div.orbit-wrapper div.slider-nav span.left {background: url('/themes/atwood/images/foundation/orbit/left-arrow.png');background-size: 100%;right: 0;}
+div.orbit {border:7px solid #f8f8f8;width:600px !important;margin:0 auto;}
+div.orbit-wrapper div.slider-nav span.right {background: url('/themes/atwood/images/orbit/right-arrow.png');background-size: 100%;right: 0;}
+div.orbit-wrapper div.slider-nav span.left {background: url('/themes/atwood/images/orbit/left-arrow.png');background-size: 100%;right: 0;}
+
+/* Menu listing exhibit pages */
+#exhibit-pages a{font-family: 'Montserrat';font-size:16px}
