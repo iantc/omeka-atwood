@@ -1,19 +1,19 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 <div class="container">
   <div class="row" id="site-title-wrapper">
-    <div class="eight columns">
+    <div class="large-8 columns">
       <h1 id="site-title">
         <?php echo link_to_home_page(theme_logo()); ?>
       </h1>
     </div>
-    <div class="four columns">
+    <div class="large-4 columns">
       <div class="row collapse">
     	  <?php echo search_form(array('show_advanced' => false)); ?>
       </div>
     </div>
   </div>
   <div class="row" id="primary" class="content">
-    <div class="five columns">
+    <div class="large-5 columns">
       <aside id="intro" role="introduction">
         <p><?php echo option('description'); ?></p>
       </aside>
@@ -45,7 +45,7 @@
         <?php echo exhibit_builder_display_random_featured_exhibit(); ?>
       <?php endif; ?>
     </div>
-    <div class="seven columns">
+    <div class="large-7 columns">
       <div id="recent-items">
         <h2><?php echo __('Recent Additions'); ?></h2>
 
@@ -58,7 +58,7 @@
               <?php
               $counta = 1;
               foreach (loop('items') as $item): ?>
-                <div class="item four columns front">
+                <div class="item large-4 columns front">
                   <?php if (metadata('item', 'has thumbnail')): ?>
                     <div class="item-img">
                       <?php echo link_to_item(item_image('square_thumbnail'),array('class'=>'recent-item th')); ?>

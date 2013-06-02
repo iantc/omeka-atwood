@@ -2,19 +2,17 @@
 echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibit-item-show'));
 ?>
 <div class="row">
-  <div class="twelve columns">
-    <h1 class="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
-  </div>
+  <h1 class="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
 </div>
 <div class="row">
-  <div class="six columns">
+  <div class="large-6 columns">
     <div id="primary">
       <div id="itemfiles">
   		  <?php echo files_for_item($options = array('imageSize' => 'fullsize'));?>
       </div>
     </div>
   </div>
-  <div class="six columns">
+  <div class="large-6 columns">
     <?php echo link_to_related_exhibits($item);?>
 		<?php if (metadata('item', 'Collection Name')): ?>
       <div id="collection" class="field">
