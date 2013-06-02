@@ -1,4 +1,4 @@
-## Omeka-foundation theme
+## Omeka Foundation theme
 
 Integrate Omeka 2.0 theme API with Zurb Foundation 4 framework. 
 
