@@ -35,12 +35,38 @@ body#exhibit{background: #eee7df}
 
 /* Exhibit home page */
 #exhibit-pages h3{font-size:14px; font-weight:normal;}
-div.orbit {border:7px solid #f8f8f8;width:600px !important;margin:0 auto;}
-div.orbit-wrapper div.slider-nav span.right {background: url('/themes/atwood/images/orbit/right-arrow.png');background-size: 100%;right: 0;}
-div.orbit-wrapper div.slider-nav span.left {background: url('/themes/atwood/images/orbit/left-arrow.png');background-size: 100%;right: 0;}
-
+#exhibit.summary .thumb{height: 180px;overflow: hidden;}
+#exhibit-pages .imgholder a{
+  display: block;
+  max-height: 150px;
+  overflow: hidden;
+  margin: 0 15px 15px;
+}
 /* Menu listing exhibit pages */
-#exhibit-pages a{font-family: 'Montserrat';font-size:16px}
+#exhibit-pages a{
+  font-family: 'Montserrat';
+  font-size:16px;
+  line-height: normal;
+}
 
 /* Admin bar */
-#admin-bar{height:40px;}
+#admin-bar{
+  height:40px;
+}
+
+@media only screen and (min-width: 768px){
+  .large-block-grid-4>li {
+    width: 23%;
+    margin: 1%;
+    background: #FFF;
+    max-height: 235px;
+    overflow: hidden;
+    text-align: center;
+  }
+  #exhibit-pages .large-block-grid-4 h2{
+    line-height: 15px;
+    min-height: 46px;
+    margin: 15px 0 0;
+    padding: 0;
+  }
+}
