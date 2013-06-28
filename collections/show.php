@@ -1,50 +1,54 @@
 <?php
-    $collectionTitle = strip_formatting(collection('Name'));
-    if ($collectionTitle != '') {
-        $collectionTitle = ': &quot;' . $collectionTitle . '&quot; ';
-    } else {
-        $collectionTitle = '';
-    }
-    $collectionTitle = __('Edit Collection #%s', collection('id')) . $collectionTitle;
+$collectionTitle = strip_formatting(metadata('collection', array('Dublin Core', 'Title')));
+if ($collectionTitle == '') {
+  $collectionTitle = __('[Untitled]');
+}
 ?>
-<?php head(array('title'=> $collectionTitle, 'bodyclass'=>'collections show')); ?>
-<h1><?php echo $collectionTitle; ?> <span class="view-public-page">[ <a href="<?php echo html_escape(public_uri('collections/show/'.collection('id'))); ?>"><?php echo __('View Public Page'); ?></a> ]</span> </h1>
-<?php if (has_permission('Collections', 'edit')): ?>    
-<p id="edit-collection" class="edit-button"><?php echo link_to_collection(__('Edit this Collection'), array('class'=>'edit'), 'edit'); ?></p>
-<?php endif; ?>
-
-<div id="primary">
-<?php echo flash(); ?>
-<div id="collection-info">
-<h2><?php echo __('Description1'); ?></h2> 
-<p><?php echo collection('Description1'); ?></p>
-
-    <h2><?php echo __('Collectors'); ?></h2>
-    <ul id="collector-list">
-        <?php if (collection_has_collectors()): ?> 
-        <li><?php echo collection('Collectors', array('delimiter'=>'</li><li>')); ?></li>
-        <?php else: ?>
-        <li><?php echo __('No collectors.'); ?></li>
-        <?php endif; ?> 
-    </ul>
-
+<?php echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show')); ?>
+<div class="container">
+    <div class="row" id="exhibit-header">
+        <div class="large-8 columns">
+            <h1><?php echo $collectionTitle; ?></h1>
+        </div>
+        <div class="large-4 columns">
+            <?php echo search_form(array('show_advanced' => false)); ?>
+        </div>
+    <div class="row collapse">
+    <div class="row">
+        <div class="large-8 columns">
+            <div id="collection-items">
+                <h3><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h3>
+                <?php if (metadata('collection', 'total_items') > 0): ?>
+                    <?php foreach (loop('items') as $item): ?>
+                        <?php $itemTitle = strip_formatting(metadata('item', array('Dublin Core', 'Title'))); ?>
+                        <div class="item hentry">
+                            <h3><?php echo link_to_item($itemTitle, array('class'=>'permalink')); ?></h3>
+                            <?php if (metadata('item', 'has thumbnail')): ?>
+                                <div class="item-img">
+                                    <?php echo link_to_item(item_image('thumbnail', array('alt' => $itemTitle))); ?>
+                                </div>
+                            <?php endif; ?>
+                            <?php if ($text = metadata('item', array('Item Type Metadata', 'Text'), array('snippet'=>250))): ?>
+                                <div class="item-description">
+                                    <p><?php echo $text; ?></p>
+                                </div>
+                            <?php elseif ($description = metadata('item', array('Dublin Core', 'Description'), array('snippet'=>250))): ?>
+                                <div class="item-description">
+                                    <?php echo $description; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p><?php echo __("There are currently no items within this collection."); ?></p>
+                <?php endif; ?>
+            </div><!-- end collection-items -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-4 columns">
+        </div>
+    </div>
 </div>
-<div id="collection-items">
-    <h2><?php echo __('Recently Added Items'); ?></h2>
-    <ul>
-    <?php while (loop_items_in_collection(10)): ?>
-        <li><span class="date"><?php echo format_date(item('Date Added')); ?></span><span class="title"> <?php echo link_to_item(); ?></span></li>
-    <?php endwhile;?>
-    </ul>
-    <h2><?php echo __('Total Number of Items'); ?></h2>
-    <p><?php echo link_to_items_in_collection(); ?></p>
-</div>
-
-<div id="output-formats">
-    <h2><?php echo __('Output Formats'); ?></h2>
-    <?php echo output_format_list(false, ' · '); ?>
-</div>
-
-<?php fire_plugin_hook('admin_append_to_collections_show_primary', $collection); ?>
-</div>
-<?php foot(); ?>
+<?php fire_plugin_hook('public_collections_show', array('view' => $this, 'collection' => $collection)); ?>
+<?php echo foot(); ?>
