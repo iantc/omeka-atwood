@@ -62,9 +62,9 @@
                   <?php if (metadata('item', 'has thumbnail')): ?>
                     <div class="item-img">
                       <?php echo link_to_item(item_image('square_thumbnail'),array('class'=>'recent-item th')); ?>
+                      <span class="item-title"><?php echo link_to_item(metadata('item', array('Dublin Core', 'Title'))); ?></span>
                     </div>
                   <?php endif; ?>
-                  <span class="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></span>
                 </div>
               <?php
               if ($counta == 3 || $counta == 6){
