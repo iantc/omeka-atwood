@@ -11,28 +11,19 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-3 columns">
+    <div class="large-12 columns">
       <div id="exhibit-pages" class="section-container vertical-nav" data-section="vertical-nav" data-options="one_up: false;">
         <section>
-          <ul class="side-nav">
+          <ul class="large-block-grid-4">
             <?php foreach ($exhibit->TopPages as $exhibitPage) {
-              echo "<li><a href=\"" . $exhibit->slug . "/" . $exhibitPage->slug . "\">" . $exhibitPage->title . "</a></li>";
+              echo "<li class=\"th\"><h2><a href=\"" . $exhibit->slug . "/" . $exhibitPage->slug . "\">" . $exhibitPage->title . "</a></h2>";
+              $exhibitarray = exhibit_builder_page_attachment(1,0,$exhibitPage);
+              echo "<div class=\"imgholder\">" . exhibit_builder_attachment_markup($exhibitarray, array('imageSize' => 'thumbnail'), array('class' => 'permalink')) . "</div>";
+              echo "</li>";
             } ?>
           </ul>
         </section>
       </div>
-    </div>
-    <div class="large-6 columns">
-      <div id="featured">
-        <img src="/themes/atwood/assets/images/slideshow1.jpg" />
-        <img src="/themes/atwood/assets/images/slideshow2.jpg" />
-        <img src="/themes/atwood/assets/images/slideshow3.jpg" />
-        <img src="/themes/atwood/assets/images/slideshow4.jpg" />
-        <img src="/themes/atwood/assets/images/slideshow5.jpg" />
-      </div>
-      <hr />
-    </div>
-    <div class="large-3 columns">
     </div>
   </div>
   <div class="row">
