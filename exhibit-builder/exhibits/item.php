@@ -2,7 +2,7 @@
 echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibit-item-show'));
 ?>
 <div class="row">
-  <div class="eight columns">
+  <div class="large-8 columns">
     <h1 class="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
     <div id="primary">
       <?php echo show_item_metadata(); ?>
@@ -11,7 +11,7 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
       </div>
     </div>
   </div>
-  <div class="four columns">
+  <div class="large-4 columns">
 		<?php if (metadata('item', 'Collection Name')): ?>
       <div id="collection" class="field">
         <h2><?php echo __('Collection'); ?></h2>
