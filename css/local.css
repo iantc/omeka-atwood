@@ -1,16 +1,47 @@
 /* Base layout */
-body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:13px;background:#f8f8f8}
+body{font-family:'Lato',Arial,Helvetica,sans-serif;font-size:14px;background:#f8f8f8}
 body#exhibit{background: #eee7df}
 .row{max-width:100%;width:1280px;}
 
+/* Typography */
+h1,h2,h3,h4{
+  font-family: 'Trykker', 'Trebuchet MS',serif;
+}
+a:hover{
+  text-decoration: none;
+}
+
 /* Site-wide top bar */
-.top-bar {background: #222;height: 45px;line-height: 45px;margin: 0 0 30px;padding: 0;width: 100%;position: relative;}
+.top-bar {background: #222;height: 45px;line-height: 45px;margin:0;padding: 0;width: 100%;position: relative;}
 #site-header #site-title{margin:0;color:#ddd3bf;}
 #site-header #site-title a{font-size:20px;padding:10px 20px;height:auto;line-height: normal;margin: 0px;}
 #home #site-header #site-title{display: none;}
 
 /* Site title */
-#exhibit-title-wrapper a{font-family: 'Trykker',serif;color:#333;font-size: 36px;}
+#exhibit-title-wrapper a{
+  font-family: 'Trykker',serif;
+  color:#6F4C4C;
+  font-size: 36px;
+}
+
+/* footer */
+#footer-nav, #footer-nav ul,#footer-nav a{
+  background-color: #E5E9EC!important;
+}
+#footer-nav{
+  padding: 30px 0 20px 0;
+  height: 120px;
+}
+#footer-nav a{
+  font-weight: normal;
+  color: #2ba6cb;
+}
+#footer-wrapper{
+  min-height: 210px;
+  padding: 20px 0 40px 0;
+  background: #C8CACC;
+  clear: both;
+}
 
 /* Omeka main page */
 #site-title-wrapper #site-title{font-size:44px;line-height:48px;margin:0 0 30px;font-weight:normal;}
@@ -20,18 +51,65 @@ body#exhibit{background: #eee7df}
 #recent-items .item-title{display: block;padding:4px;}
 
 /* Exhibit header */
+#exhibit-header-wrapper{
+  padding: 25px 0 0;
+  background:#DADDDF;
+  margin:0;
+}
 #exhibit-header{margin-bottom: 12px}
 #exhibit-header #search-form{margin-top:8px;}
 #exhibit-title-wrapper{margin-top: 0;}
 
 /* CSS for the .gallery-full-left layout */
-.show #exhibit-title-wrapper{font-size:28px;margin-top: 0;}
-.gallery-full-left .primary,
-.gallery-full-left .secondary {float:left;width:49%;overflow:hidden;zoom:1;}
-.gallery-full-left .secondary {float:right;width:42%;margin-top:4px;}
-.gallery-full-left .gallery .exhibit-item {float:left;margin-right:2%;width: 48%;}
-.gallery-full-left .exhibit-item {margin-bottom:2%;}
-.gallery-full-left .exhibit-item img {max-width: 100%;}
+.show #exhibit-title-wrapper{
+  font-size:28px;
+  margin-top: 0;
+}
+.breadcrumbs{
+  background-color: transparent;
+  border: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+.breadcrumbs .current{
+  color: #777;
+  font-style: italic;
+}
+#exhibit-page-wrapper{
+  min-height: 510px;
+  padding: 0 0 60px;
+}
+#exhibit h2{
+  font-size: 27px;
+}
+.gallery-full-left .secondary .columns {
+  padding-right: 10px;
+}
+.last {
+  padding-left: 0;
+}
+.gallery-full-left .primary .exhibit-item {
+  float: left;
+  margin: 5px 15px 15px 5px;
+}
+.gallery-full-left .secondary .exhibit-item {
+  float: none;
+  display: block;
+  vertical-align: top;
+  margin: 0 0 10px;
+  width: 100%;
+  /* IE 7 */
+  *display: block;
+  zoom: 1;
+}
+.gallery-full-left .secondary .exhibit-item a {
+  width: 100%;
+  max-height: 245px;
+  overflow: hidden;
+}
+.gallery-full-left .secondary .exhibit-item img {
+  width: 100%;
+}
 
 /* Exhibit home page */
 #exhibit-pages h3{font-size:14px; font-weight:normal;}
@@ -48,6 +126,46 @@ body#exhibit{background: #eee7df}
   font-size:16px;
   line-height: normal;
 }
+
+/* Exhibit item page */
+#item-title{
+  margin:30px 20px 20px;
+  color: #AF8181;
+}
+#item-content-wrapper{
+  min-height: 510px;
+  padding: 0 0 60px;
+}
+#item-info-elements h2{
+  display: none;
+}
+#item-info-elements h3, #item-info-elements h4{
+  font-size: 16px;
+  margin: 18px 0 0;
+}
+#itemfiles .th{
+  cursor: default;
+}
+#item-info-elements p{
+  margin: 0;
+}
+#item-info-elements #dublin-core-title{
+  display: none;
+}
+
+
+/* item browse */
+.sort-label,.pagination-wrapper{
+  margin-left: 60px !important;
+}
+.pagination-wrapper input{
+  width: 26px;
+  display: inline;
+}
+#item-browse-table img{
+  width: 75px;
+}
+
 
 /* Admin bar */
 #admin-bar{
