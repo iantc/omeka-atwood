@@ -1,19 +1,19 @@
 <?php echo head(array('bodyid'=>'home')); ?>
 <div class="container">
   <div class="row" id="site-title-wrapper">
-    <div class="large-8 columns">
+    <div class="small-8 columns">
       <h1 id="site-title">
         <?php echo link_to_home_page(theme_logo()); ?>
       </h1>
     </div>
-    <div class="large-4 columns">
+    <div class="small-4 columns">
       <div class="row collapse">
     	  <?php echo search_form(array('show_advanced' => false)); ?>
       </div>
     </div>
   </div>
   <div class="row" id="primary" class="content">
-    <div class="large-5 columns">
+    <div class="small-4 columns">
       <aside id="intro" role="introduction">
         <p><?php echo option('description'); ?></p>
       </aside>
@@ -45,7 +45,7 @@
         <?php echo exhibit_builder_display_random_featured_exhibit(); ?>
       <?php endif; ?>
     </div>
-    <div class="large-7 columns">
+    <div class="small-7 small-offset-1 columns">
       <div id="recent-items">
         <h2><?php echo __('Recent Additions'); ?></h2>
 

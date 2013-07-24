@@ -7,15 +7,15 @@ if ($collectionTitle == '') {
 <?php echo head(array('title'=> $collectionTitle, 'bodyclass' => 'collections show')); ?>
 <div class="container">
     <div class="row" id="exhibit-header">
-        <div class="large-8 columns">
+        <div class="small-8 columns">
             <h1><?php echo $collectionTitle; ?></h1>
         </div>
-        <div class="large-4 columns">
+        <div class="small-4 columns">
             <?php echo search_form(array('show_advanced' => false)); ?>
         </div>
     <div class="row collapse">
     <div class="row">
-        <div class="large-8 columns">
+        <div class="small-8 columns">
             <div id="collection-items">
                 <h3><?php echo link_to_items_browse(__('Items in the %s Collection', $collectionTitle), array('collection' => metadata('collection', 'id'))); ?></h3>
                 <?php if (metadata('collection', 'total_items') > 0): ?>
@@ -46,7 +46,7 @@ if ($collectionTitle == '') {
         </div>
     </div>
     <div class="row">
-        <div class="large-4 columns">
+        <div class="small-4 columns">
         </div>
     </div>
 </div>
