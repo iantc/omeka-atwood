@@ -19,19 +19,38 @@
   ?>
   <!-- JavaScripts -->
   <script src="/themes/atwood/javascripts/vendor/custom.modernizr.js"></script>
+  <?php echo head_js(); ?>
+  <?php queue_js_file(array('foundation.min', 'app')); ?>
+  <script type="text/javascript">
+    jQuery(document).ready(function() {
+      jQuery('#site-header .navigation').addClass('right');
+      jQuery('#secondary-nav .navigation').addClass('side-nav')
+      jQuery('#search-form #query').wrap('<div class="small-9 large-9 columns" />');
+      jQuery('#search-form input[type=submit]').wrap('<div class="small-3 large-3 columns" />');
+      jQuery('#search-form input[type=submit]').addClass('button expand postfix');
+      jQuery('#atwood-layout .primary .exhibit-item a').addClass('th');
+      jQuery('#atwood-layout .secondary .exhibit-item a').addClass('th');
+      jQuery('#sort-links .sort-label').prependTo('#sort-links-list');
+      jQuery('#itemfiles .image-jpeg a').addClass('th');
+      jQuery('.sub-nav .sorting').addClass('active');
+      jQuery('#recent-items .item-title').each(function() {
+        jQuery(this).prev('.item-img').children('.th').append(this);
+      });
+    });
+  </script>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>
-<?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
-<nav class="container top-bar home-border" id="site-header">
-  <?php fire_plugin_hook('public_header'); ?>
-  <ul class="title-area">        <!-- Title Area -->
-    <li class="name">
-      <h1 id="site-title"><?php echo link_to_home_page(theme_logo()); ?></h1>
-    </li>
-  </ul>
-  <section class="top-bar-section">
-    <!-- Left Nav Section -->
-    <?php echo public_nav_main(); ?>
-  </section>
-  <?php fire_plugin_hook('public_content_top'); ?>
-</nav>
+  <?php fire_plugin_hook('public_body', array('view'=>$this)); ?>
+  <nav class="container top-bar home-border" id="site-header">
+    <?php fire_plugin_hook('public_header'); ?>
+    <ul class="title-area">        <!-- Title Area -->
+      <li class="name">
+        <h1 id="site-title"><?php echo link_to_home_page(theme_logo()); ?></h1>
+      </li>
+    </ul>
+    <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <?php echo public_nav_main(); ?>
+    </section>
+    <?php fire_plugin_hook('public_content_top'); ?>
+  </nav>
