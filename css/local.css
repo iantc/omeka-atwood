@@ -18,6 +18,10 @@ a:hover{
 #home #site-header #site-title{display: none;}
 
 /* Site title */
+#home #site-title-wrapper,
+.search #site-title-wrapper{
+  margin-top: 20px;
+}
 #exhibit-title-wrapper a{
   font-family: 'Trykker',serif;
   color:#6F4C4C;

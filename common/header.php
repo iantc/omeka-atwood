@@ -25,8 +25,6 @@
     jQuery(document).ready(function() {
       jQuery('#site-header .navigation').addClass('right');
       jQuery('#secondary-nav .navigation').addClass('side-nav')
-      jQuery('#search-form #query').wrap('<div class="small-9 large-9 columns" />');
-      jQuery('#search-form input[type=submit]').wrap('<div class="small-3 large-3 columns" />');
       jQuery('#search-form input[type=submit]').addClass('button expand postfix');
       jQuery('#atwood-layout .primary .exhibit-item a').addClass('th');
       jQuery('#atwood-layout .secondary .exhibit-item a').addClass('th');
