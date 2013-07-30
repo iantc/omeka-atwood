@@ -1,9 +1,11 @@
 <?php echo $this->form('search-form', $options['form_attributes']); ?>
     <?php if (!is_admin_theme()): ?>
         <div class="small-9 large-9 columns" />
+            <span data-tooltip class="has-tip" title="Search must contain more than three letters">test
     <?php endif; ?>
-    <?php echo $this->formText('query', $filters['query']); ?>
+                <?php echo $this->formText('query', $filters['query']); ?>
     <?php if (!is_admin_theme()): ?>
+            </span>
         </div>
     <?php endif; ?>
     <?php if ($options['show_advanced']): ?>

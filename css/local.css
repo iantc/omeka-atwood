@@ -124,6 +124,7 @@ a:hover{
   overflow: hidden;
   margin: 0 15px 15px;
 }
+
 /* Menu listing exhibit pages */
 #exhibit-pages a{
   font-family: 'Montserrat';
@@ -149,6 +150,7 @@ a:hover{
 }
 #itemfiles .th{
   cursor: default;
+  float: left;
 }
 #item-info-elements p{
   margin: 0;
@@ -156,7 +158,6 @@ a:hover{
 #item-info-elements #dublin-core-title{
   display: none;
 }
-
 
 /* item browse */
 .sort-label,.pagination-wrapper{
@@ -170,11 +171,35 @@ a:hover{
   width: 75px;
 }
 
+/* search */
+#search-filters{
+  margin: 10px 0;
+  font-weight: bold;
+  font-style: italic;
+}
+#search-results-wrapper{
+  padding: 10px 25px;
+}
+.search-result-type{
+  color:#888;
+}
+.search-result-desc{
+  display: block;
+}
+
+/* tooltips */
+.has-tip {
+  border-bottom: dotted 1px #CCC;
+  cursor: help;
+  font-weight: bold;
+  color: #333;
+}
 
 /* Admin bar */
 #admin-bar{
   height:40px;
 }
+
 
 @media only screen and (min-width: 768px){
   .large-block-grid-4>li {
