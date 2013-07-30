@@ -12,15 +12,18 @@
   <!-- Plugin Stuff -->
   <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
   <!-- Stylesheets -->
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/css/normalize.min.css" media="all" rel="stylesheet" type="text/css" >
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/css/foundation.min.css" media="all" rel="stylesheet" type="text/css" >
   <?php
-  queue_css_file(array('normalize','foundation.min','local'));
+  queue_css_file(array('local'));
   queue_css_url('//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Trykker|Montserrat');
   echo head_css();
   ?>
   <!-- JavaScripts -->
-  <script src="/themes/atwood/javascripts/vendor/custom.modernizr.js"></script>
-  <?php echo head_js(); ?>
-  <?php queue_js_file(array('foundation.min', 'app')); ?>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/js/vendor/custom.modernizr.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/js/vendor/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.1.6/js/foundation.min.js"></script>
   <script type="text/javascript">
     jQuery(document).ready(function() {
       jQuery('#site-header .navigation').addClass('right');
@@ -34,6 +37,14 @@
       jQuery('#recent-items .item-title').each(function() {
         jQuery(this).prev('.item-img').children('.th').append(this);
       });
+      if (jQuery('#side-gallery').length) {
+        jQuery('#side-gallery .exhibit-item').each(function(){
+          jQuery(this).append('<a class="caption"/>');
+          var itemLink = jQuery(this).find('.exhibit-item-link').attr('href');
+          var itemCaption = jQuery(this).find('.permalink').attr('title');
+          jQuery(this).find('.caption').attr('href',itemLink).html(itemCaption);
+        })
+      }
     });
   </script>
 </head>
