@@ -1,17 +1,23 @@
 <?php
 function link_to_related_exhibits($item) {
-  $db = get_db();
 
-  $select = "
-    SELECT e.* FROM {$db->prefix}exhibits e
-    INNER JOIN {$db->prefix}exhibit_pages ep on ep.exhibit_id = e.id
-    INNER JOIN {$db->prefix}exhibit_page_entries epe ON epe.page_id = ep.id
-    WHERE epe.item_id = ?";
+    $db = get_db();
 
-  $exhibits = $db->getTable("Exhibit")->fetchObjects($select,array($item->id));
-  if(!empty($exhibits)) {
-    echo '<a href="/exhibits/show/'.$exhibits[0]->slug.'">'.$exhibits[0]->title.'</a>';
-  }
+    $select = "
+    SELECT e.* FROM {$db->prefix}exhibits AS e
+    INNER JOIN {$db->prefix}exhibit_pages AS ep on ep.exhibit_id = e.id
+    INNER JOIN {$db->prefix}exhibit_page_blocks AS epb ON epb.page_id = ep.id
+    INNER JOIN {$db->prefix}exhibit_block_attachments AS epba ON epba.block_id = epb.id
+    WHERE epba.item_id = ?";
+
+    $exhibits = $db->getTable("Exhibit")->fetchObjects($select,array($item->id));
+
+    if(!empty($exhibits)) {
+        echo '<h3>Appears in Exhibits</h3>';
+        foreach($exhibits as $exhibit) {
+            echo '<p><a href="/exhibits/show/'.$exhibit->slug.'">'.$exhibit->title.'</a></p>';
+        }
+    }
 }
 
 function get_exhibit_info($item) {
