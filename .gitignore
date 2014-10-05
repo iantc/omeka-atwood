@@ -3,3 +3,5 @@ dwsync.xml
 exhibit-builder/.DS_Store
 
 .DS_Store
+
+*.db
