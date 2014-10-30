@@ -4,12 +4,12 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
 <div class="container" id="exhibit-header-wrapper">
   <div class="row" id="exhibit-header">
     <div class="small-8 columns">
-      <h1 id="exhibit-title-wrapper"><?php echo link_to_exhibit(metadata('exhibit', 'title'), array('id'=>'exhibit-title')); ?></h1>
+      <h1 id="exhibit-title-wrapper">
+        <?php echo exhibit_builder_link_to_exhibit($exhibit); ?>
+      </h1>
     </div>
     <div class="small-4 columns">
-      <div class="row collapse">
-        <?php echo search_form(array('show_advanced' => false)); ?>
-      </div>
+      <?php echo search_form(array('show_advanced' => false)); ?>
     </div>
   </div>
 </div>

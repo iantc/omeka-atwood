@@ -7,9 +7,7 @@
       </h1>
     </div>
     <div class="small-4 columns">
-      <div class="row collapse">
-    	  <?php echo search_form(array('show_advanced' => false)); ?>
-      </div>
+  	  <?php echo search_form(array('show_advanced' => false)); ?>
     </div>
   </div>
   <div class="row" id="primary" class="content">

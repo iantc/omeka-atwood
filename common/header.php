@@ -13,14 +13,21 @@
   <?php fire_plugin_hook('public_head', array('view'=>$this)); ?>
   <!-- Stylesheets -->
 
-  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.0/css/normalize.min.css" media="all" rel="stylesheet" type="text/css" >
-  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.0/css/foundation.min.css" media="all" rel="stylesheet" type="text/css" >
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.0/css/normalize.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.0/css/foundation.min.css" media="all" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" media="all" rel="stylesheet" type="text/css"/>
   <?php
   queue_css_file(array('local'));
   queue_css_url('//fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Trykker|Montserrat');
   echo head_css();
   ?>
   <!-- JavaScripts -->
+  <?php 
+    queue_js_file('vendor/selectivizr', 'javascripts', array('conditional' => '(gte IE 6)&(lte IE 8)'));
+    queue_js_file('vendor/respond');
+    queue_js_file('globals');
+    echo head_js(); 
+    ?>
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.4.0/js/vendor/modernizr.js"></script>
 </head>
 <?php echo body_tag(array('id' => @$bodyid, 'class' => @$bodyclass)); ?>

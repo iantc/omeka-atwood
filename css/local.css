@@ -13,7 +13,10 @@ a:hover{
 
 /* Site-wide top bar */
 .top-bar {background: #222;height: 45px;line-height: 45px;margin:0;padding: 0;width: 100%;position: relative;}
-#site-header #site-title{margin:0;color:#ddd3bf;}
+#site-header #site-title{
+  margin:0 50px 0 20px;
+  color:#ddd3bf;
+}
 #site-header #site-title a{font-size:20px;padding:10px 20px;height:auto;line-height: normal;margin: 0px;}
 #home #site-header #site-title{display: none;}
 
@@ -25,7 +28,10 @@ a:hover{
 #exhibit-title-wrapper a{
   font-family: 'Trykker',serif;
   color:#6F4C4C;
-  font-size: 36px;
+  font-size: 28px;
+}
+#exhibit-title-wrapper .item-view a{
+  font-size:20px;
 }
 
 /* footer */
@@ -54,15 +60,28 @@ a:hover{
 #recent-items .row{min-height: 265px;}
 #recent-items .item-title{display: block;padding:4px;}
 
+.exhibits.browse .browse-exhibits,
+.collections.browse .browse-collections{
+  padding: 30px 0 75px;
+  min-height: 500px;
+}
 /* Exhibit header */
-#exhibit-header-wrapper{
+#exhibit-header-wrapper,
+#header-wrapper{
   padding: 25px 0 0;
   background:#DADDDF;
   margin:0;
 }
-#exhibit-header{margin-bottom: 12px}
-#exhibit-header #search-form{margin-top:8px;}
-#exhibit-title-wrapper{margin-top: 0;}
+#exhibit-header,
+#header{
+  margin-bottom: 12px;
+}
+#exhibit-header #search-form{
+  margin-top:8px;
+}
+#exhibit-title-wrapper{
+  margin-top: 0;
+}
 
 /* CSS for the .gallery-full-left layout */
 .show #exhibit-title-wrapper{
@@ -163,9 +182,14 @@ a:hover{
 .sort-label,.pagination-wrapper{
   margin-left: 60px !important;
 }
+.pagination-wrapper form{
+  margin: -2px 0 0;
+}
 .pagination-wrapper input{
   width: 26px;
   display: inline;
+  padding: 5px 8px;
+  height: auto;
 }
 #item-browse-table img{
   width: 75px;

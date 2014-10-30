@@ -1,7 +1,8 @@
 <?php echo $this->form('search-form', $options['form_attributes']); ?>
+  <div class="row collapse">
     <?php if (!is_admin_theme()): ?>
         <div class="small-9 large-9 columns" />
-            <span data-tooltip class="has-tip" title="Search must contain more than three letters">test
+            <span data-tooltip class="has-tip" title="Search must contain more than three letters">
     <?php endif; ?>
                 <?php echo $this->formText('query', $filters['query']); ?>
     <?php if (!is_admin_theme()): ?>
@@ -34,4 +35,5 @@
     <?php if (!is_admin_theme()): ?>
         </div>
     <?php endif; ?>
+  </div>
 </form>

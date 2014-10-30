@@ -13,7 +13,7 @@ if ($collectionTitle == '') {
         <div class="small-4 columns">
             <?php echo search_form(array('show_advanced' => false)); ?>
         </div>
-    <div class="row collapse">
+    </div>
     <div class="row">
         <div class="small-8 columns">
             <div id="collection-items">

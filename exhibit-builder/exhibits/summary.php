@@ -1,8 +1,10 @@
-<?php echo head(array('title' => metadata('exhibit', 'title'),'bodyid'=>'exhibit','bodyclass'=>'summary')); ?>
+<?php echo head(array('title' => metadata('exhibit', 'title'),'bodyid'=>'exhibit','bodyclass'=>'exhibits summary')); ?>
 <div class="container" id="exhibit-header-wrapper">
   <div class="row" id="exhibit-header">
     <div class="small-8 columns">
-      <h1 id="exhibit-title-wrapper"><?php echo link_to_exhibit(metadata('exhibit', 'title'), array('id'=>'exhibit-title')); ?></h1>
+      <h1 id="exhibit-title-wrapper">
+        <?php echo link_to_exhibit(metadata('exhibit', 'title'), array('id'=>'exhibit-title')); ?>
+      </h1>
     </div>
     <div class="small-4 columns">
       <div class="row collapse">
@@ -20,21 +22,30 @@
             <?php foreach ($exhibit->TopPages as $exhibitPage) {
               $exhibitPageLink = $exhibit->slug . "/" . $exhibitPage->slug;
               echo "<li class=\"th\"><h2><a href=\"" . $exhibitPageLink . "\">" . $exhibitPage->title . "</a></h2>";
-              $exhibitarray = exhibit_builder_page_attachment(1,0,$exhibitPage);
-              echo "<div class=\"imgholder\">" . atwood_exhibit_builder_attachment_markup($exhibitarray, array('imageSize' => 'thumbnail'), array('class' => 'permalink'), $exhibitPageLink) . "</div>";
+              display_exhibit_page_image($exhibitPage->id);
               echo "</li>";
             } ?>
           </ul>
         </section>
       </div>
+      <?php if ($exhibitDescription = metadata('exhibit', 'description', array('no_escape' => true))): ?>
+        <div class="exhibit-description">
+          <?php echo $exhibitDescription; ?>
+        </div>
+      <?php endif; ?>
+      <?php echo exhibit_builder_page_nav(); ?>
     </div>
   </div>
   <div class="row">
 	  <?php //echo metadata('exhibit', 'description', array('no_escape' => true)); ?>
   </div>
   <div class="row">
-      <h4><?php echo __('Credits'); ?></h4>
-      <p><?php echo metadata('exhibit', 'credits'); ?></p>
+    <?php if (($exhibitCredits = metadata('exhibit', 'credits'))): ?>
+      <div class="exhibit-credits">
+        <h4><?php echo __('Credits'); ?></h4>
+        <p><?php echo $exhibitCredits; ?></p>
+      </div>
+    <?php endif; ?>
   </div>
 </div>
 <?php echo foot(); ?>

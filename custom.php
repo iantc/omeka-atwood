@@ -1,23 +1,25 @@
 <?php
 function link_to_related_exhibits($item) {
 
-    $db = get_db();
+  $db = get_db();
 
-    $select = "
-    SELECT e.* FROM {$db->prefix}exhibits AS e
-    INNER JOIN {$db->prefix}exhibit_pages AS ep on ep.exhibit_id = e.id
-    INNER JOIN {$db->prefix}exhibit_page_blocks AS epb ON epb.page_id = ep.id
-    INNER JOIN {$db->prefix}exhibit_block_attachments AS epba ON epba.block_id = epb.id
-    WHERE epba.item_id = ?";
+  $select = "
+  SELECT e.* FROM {$db->prefix}exhibits AS e
+  INNER JOIN {$db->prefix}exhibit_pages AS ep on ep.exhibit_id = e.id
+  INNER JOIN {$db->prefix}exhibit_page_blocks AS epb ON epb.page_id = ep.id
+  INNER JOIN {$db->prefix}exhibit_block_attachments AS epba ON epba.block_id = epb.id
+  WHERE epba.item_id = ?";
 
-    $exhibits = $db->getTable("Exhibit")->fetchObjects($select,array($item->id));
+  $exhibits = $db->getTable("Exhibit")->fetchObjects($select,array($item->id));
 
-    if(!empty($exhibits)) {
-        echo '<h3>Appears in Exhibits</h3>';
-        foreach($exhibits as $exhibit) {
-            echo '<p><a href="/exhibits/show/'.$exhibit->slug.'">'.$exhibit->title.'</a></p>';
-        }
+  if(!empty($exhibits)) {
+  $slug_prev = "";
+    foreach($exhibits as $exhibit) {
+      if ($exhibit->slug != $slug_prev){
+        echo '<div class="item-view"><a href="/exhibits/show/'.$exhibit->slug.'">'.$exhibit->title.'</a></div>';
+      }
     }
+  }
 }
 
 function get_exhibit_info($item) {
@@ -47,7 +49,6 @@ function exhibit_side_nav($exhibit, $navType = 'li'){
 
 function exhibit_sub_nav($exhibitid, $navType = 'li'){
   $db = get_db();
-
   $select = "
     SELECT * FROM {$db->prefix}exhibit_pages ep
     WHERE ep.exhibit_id = ?
@@ -58,6 +59,27 @@ function exhibit_sub_nav($exhibitid, $navType = 'li'){
     echo "<" . $navType . "><a href=\"/exhibits/show/atwood/" . $exhibitPage->slug . "\">" . $exhibitPage->title . "</a></" . $navType . ">";
   }
 }
+
+function display_exhibit_page_image($exhibitpage) {
+  $db = get_db();
+  $select = "
+  SELECT f.filename, ep.slug FROM {$db->prefix}exhibit_pages AS ep 
+  INNER JOIN {$db->prefix}exhibit_page_blocks AS epb ON epb.page_id = ep.id
+  INNER JOIN {$db->prefix}exhibit_block_attachments AS epba ON epba.block_id = epb.id
+  INNER JOIN {$db->prefix}files AS f ON f.id = epba.file_id
+  WHERE ep.id = ? 
+  ORDER BY epba.id 
+  LIMIT 1";
+
+  $exhibititems = $db->getTable("Exhibit")->fetchObjects($select,$exhibitpage);
+
+  if(!empty($exhibititems)) {
+    foreach($exhibititems as $exhibititem) {
+      echo "<div class=\"imgholder\"><a href=\"/exhibits/show/atwood/" . $exhibititem->slug . "\"><img src=\"/files/square_thumbnails/" . $exhibititem->filename . "\"/></a></div>";
+    }
+  }
+}
+
 
 /**
 * Returns HTML for a set of linked thumbnails for the items on a given exhibit page. Each

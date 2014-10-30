@@ -2,18 +2,18 @@
 $pageTitle = __('Browse Items');
 echo head(array('title'=>$pageTitle,'bodyid'=>'items','bodyclass' => 'browse'));
 ?>
-<div class="container">
-  <div class="row" id="exhibit-header">
+<div class="container" id="header-wrapper">
+  <div class="row" id="header">
     <div class="small-8 columns">
-      <h1 id="exhibit-title-wrapper"><?php echo $pageTitle; ?></h1>
+      <h1><?php echo $pageTitle; ?></h1>
     </div>
     <div class="small-4 columns">
-      <div class="row collapse">
-        <?php echo search_form(array('show_advanced' => false)); ?>
-      </div>
+      <?php echo search_form(array('show_advanced' => false)); ?>
     </div>
   </div>
-  <div class="row">
+</div>
+<div class="container browse-items">
+  <div class="row" id="primary" class="content">
     <div class="small-2 columns">
       <div id="exhibit-pages">
         <nav class="items-nav panel" id="secondary-nav">

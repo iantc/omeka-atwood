@@ -4,7 +4,7 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
 <div class="container" id="exhibit-header-wrapper">
   <div class="row" id="exhibit-header">
     <div class="small-8 columns">
-      <h1 id="exhibit-title-wrapper"><?php echo link_to_related_exhibits($item); ?></h1>
+      <div id="exhibit-title-wrapper"><?php echo link_to_related_exhibits($item); ?></div>
     </div>
     <div class="small-4 columns">
       <div class="row collapse">
@@ -15,8 +15,8 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
 </div>
 <div class="container" id="item-content-wrapper">
   <div class="row">
-    <div class="small-8 columns">
-      <h2 id="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h2>
+    <div class="small-12 columns">
+      <h1 id="item-title"><?php echo metadata('item', array('Dublin Core', 'Title')); ?></h1>
       <div class="row">
         <div class="small-4 columns" id="secondary">
           <div id="item-info-elements" class="panel radius">
@@ -42,10 +42,19 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
             <?php if (metadata('item', 'Collection Name')): ?>
               <div id="collection" class="field element">
                 <h4><?php echo __('Collection'); ?></h4>
-                  <div class="field-value element-text"><p><?php echo link_to_collection_for_item(); ?></p></div>
+                <div class="element-text">
+                  <p><?php echo link_to_collection_for_item(); ?></p>
+                </div>
               </div>
             <?php endif; ?>
+            <div id="exhibits">
+              <h4><?php echo __('Exhibits'); ?></h4>
+              <div class="element-text">
+                <?php echo link_to_related_exhibits($item); ?>
+              </div>
+            </div>
           </div>
+          <a onclick="goBack()">&laquo; Return to previous page</a>
         </div>
         <div class="small-8 columns">
           <div id="primary">
@@ -53,7 +62,9 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
             <?php if (metadata('item', 'has files')): ?>
             <div id="itemfiles" class="element">
               <?php if (get_theme_option('Item FileGallery') == 1): ?>
-                <div class="element-text"><?php echo item_image_gallery(); ?></div>
+                <div class="element-text">
+                  <?php echo files_for_item(array('imageSize'=>'fullsize')); ?>
+                </div>
               <?php else: ?>
                 <div class="element-text"><?php echo files_for_item(); ?></div>
               <?php endif; ?>
@@ -68,9 +79,6 @@ echo head(array('title' => $title, 'bodyid' => 'exhibit', 'bodyclass' => 'exhibi
         <li id="next-item" class="next"><?php echo link_to_next_item_show(); ?></li>
       </ul>
       </nav>
-    </div>
-    <div class="small-4 columns">
-      <?php fire_plugin_hook('public_items_show', array('view' => $this, 'item' => $item)); ?>
     </div>
   </div>
 </div>
