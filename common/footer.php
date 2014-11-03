@@ -24,6 +24,7 @@
       jQuery(".top-bar-section a[href$='collections/browse']").prepend("<i class='fi-folder'> </i> ");
       jQuery(".top-bar-section a[href$='exhibits']").prepend("<i class='fi-photo'> </i> ");
       jQuery("#search-form input[type=submit]").addClass("button postfix");
+      jQuery(".sub-nav .sorting").addClass("active");
     });
     function goBack() {
       window.history.back()
